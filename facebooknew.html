@@ -1,0 +1,157 @@
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="facebooknew.css">
+</head>
+
+<body>
+    <div class="header">
+        <button class="face" id="myBtn"><h1>facebook</h1></button>
+    </div>
+    <!-- Displaying the weather data in the form of modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <p id="location" class="locate"></p>
+            <span id="main" class="description"></span>
+            <img id="icon" width="40%" height="17%" src="codes/200.png" align="right" hspace="30" vspace="50" alt="check" />
+            <table class="table1">
+                <tr>
+                    <td>
+                        <span id="temperature" class="temperate"></span>
+                        <span class="subscript"><sup class="subscript1">&#8451;</sup></span>
+                    </td>
+                </tr>
+                <!--   <tr>
+                    <td>
+                        <img src="wind.png" align="left" height=20>
+                        <span id="wind"></span>mph<span id="direction"></span>
+                    </td>
+                </tr> -->
+                <tr>
+                    <td><img src="humid.jpg" align="left" height=20><span id="humidity" float="left"></span> &percnt;
+
+                    </td>
+                </tr>
+                <tr>
+                    <td> <img src="latlng.jpg" align="left" height=20>
+
+                        <span id="lat"></span>&deg;
+
+                    </td>
+                </tr>
+                <tr>
+                    <td> <img src="latlng.jpg" align="left" height=20>
+
+                        <span id="pressure">0</span>hpa
+
+                    </td>
+                </tr>
+            </table>
+            <span class="close" id="clo"></span>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="side">
+            <br><br>
+            <h2>Facebook helps you connect and share with the<br> people in your life</h2>
+            <img src="face.png" style="height:200px;justify-content:flex-end;align-items: flex-end;margin-left:20%">
+        </div>
+        <div class="main">
+            <form name="myform">
+                <table>
+                    <tr>
+                        <td> <label>First_Name:</label></td>
+                        <td> <input type="text" name="first" id="firstname" onblur="checkforfirstname()">
+                        </td>
+                        <td>
+
+                            <span id="username"></span>
+
+                        </td>
+                    </tr>
+                    <br/>
+                    <tr>
+                        <td><label>Last_Name:</label></td>
+                        <td>
+                            <input type="text" name="last" id="lastname" onblur="checkforlastname()">
+                        </td>
+                        <td>
+                            <span id="username1"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label>DOB:</label></td>
+                        <td> <input type="date" name="date" id="dob" step="1" max="1997-12-31">
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td><label>Age:</label></td>
+                        <td>
+                            <input type="number" id="age" name="age" min="21" max="100" step="1">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label>Email:</label></td>
+                        <td> <input type="email" name="email" id="email" onblur="validateemail()">
+                        </td>
+                        <td>
+                            <span id="mails"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> <label>Confirm:</label></td>
+                        <td> <input type="email" name="Confirmemail" id="crosscheck" onblur="confirmmail()">
+                        </td>
+                        <td>
+                            <span id="con"></span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><label>Life Goals</label></td>
+                        <td> <textarea maxlength="150" id="goal" name="goals"></textarea>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td><label>Hobbies</label></td>
+                        <td><input type="text" id="hob" name="hobbies" list="l2"><datalist id="l2">
+                                        <option>Dancing</option>
+                                        <option>Singing</option>
+                                        <option>Drawing</option>
+                                        <option>Painting</option>
+                                        <option>Watching Movie</option>
+                                        <option>Collecting money</option>
+                                        <option>Playing</option>
+                                        <option>Choreographing</option>
+                                </datalist>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+            <p class="btn">
+                <button class="btn1" onclick="button1()">RESET</button>
+                <button class="btn2" onclick="button2()">SUBMIT</button></p>
+            <div id="mydiv">
+                <div id="close" class="closing">&times;</div>
+                <div id="mydivheader">
+                    Validation Summary </div>
+                <p id="division" style="color:black;background-color: white;"></p>
+                <p id="division1" style="color:black;background-color: white;"></p>
+                <p id="division2" style="color:black;background-color: white;"></p>
+                <p id="division3" style="color:black;background-color: white;"></p>
+            </div>
+
+            <script src="facebooknew.js "></script>
+
+        </div>
+
+    </div>
+    </div>
+</body>
+
+</html>
