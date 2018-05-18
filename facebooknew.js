@@ -130,25 +130,29 @@ function checkforfirstname() {
     var a = document.getElementById("firstname").value;
     var b = document.getElementById("division").value;
     if (a == "") {
-        document.getElementById('username').innerHTML = "**Field Empty**";
-        document.getElementById('division').innerHTML = "Field Empty";
+        document.getElementById('username').innerHTML = "Field Empty";
+        document.getElementById('division').innerHTML = "<b>First_Name:</b>" + "Field Empty";
+        document.getElementById('mydivheader').style.display = "block";
         return false;
 
     } else if ((a.length < 8) || (a.length > 26)) {
         document.getElementById('username').innerHTML = "**Name should have min 8 characters and max 26 characters**";
         document.getElementById('firstname').style.borderColor = "red";
-        document.getElementById('division').innerHTML = "Min 8 and max 26 characters allowed";
+        document.getElementById('division').innerHTML = "<b>First_Name:</b>" + "Min 8 and max 26 characters allowed";
+        document.getElementById('mydivheader').style.display = "block";
         return false;
 
     } else if (!isNaN(a)) {
         document.getElementById('username').innerHTML = "**Only characters are allowed**";
         document.getElementById('firstname').style.borderColor = "red";
-        document.getElementById('division').innerHTML = "Only characters are allowed in First Name";
+        document.getElementById('division').innerHTML = "<b>First_Name:</b>" + "Only characters are allowed in First Name";
+        document.getElementById('mydivheader').style.display = "block";
         return false;
     } else {
         document.getElementById('username').innerHTML = "";
         document.getElementById('firstname').style.borderColor = "white";
         document.getElementById('division').innerHTML = "";
+        document.getElementById('mydivheader').style.display = "block";
     }
 }
 //Validations for LastName//
@@ -157,135 +161,228 @@ function checkforlastname() {
     var b = document.getElementById("division1").value;
 
     if (a == "") {
-        document.getElementById('username1').innerHTML = "";
+        document.getElementById('username1').innerHTML = "Field Empty";
+        document.getElementById('division1').style.display = "<b>Last_Name:</b>" + "Field Empty";
+        document.getElementById('mydivheader').style.display = "block";
 
         return false;
     } else if ((a.length < 8) || (a.length > 26)) {
         document.getElementById('username1').innerHTML = "**Name should have min 8 characters and max 26 characters**";
-        document.getElementById('division1').innerHTML = "Name should have min 8 characters and max 26 characters";
+        document.getElementById('division1').innerHTML = "<b>Last_Name:</b>" + "Name should have min 8 characters and max 26 characters";
         document.getElementById('lastname').style.borderColor = "red";
+        document.getElementById('mydivheader').style.display = "block";
         return false;
     } else if (!isNaN(a)) {
         document.getElementById('username1').innerHTML = "**Only characters are allowed**";
-        document.getElementById('division1').innerHTML = "Only characters are allowed";
+        document.getElementById('division1').innerHTML = "<b>Last_Name:</b>" + "Only characters are allowed";
         document.getElementById('lastname').style.borderColor = "red";
+        document.getElementById('mydivheader').style.display = "block";
     } else {
         document.getElementById('username1').innerHTML = "";
         document.getElementById('lastname').style.borderColor = "white";
         document.getElementById('division1').innerHTML = "";
-
-
+        document.getElementById('mydivheader').style.display = "block";
     }
 }
+
+function checkdate() {
+    var a = document.getElementById("age").value;
+    var b = document.getElementById("division3").value;
+    if (a == "") {
+        document.getElementById("checkdate").innerHTML = "Field Empty";
+        document.getElementById('division3').innerHTML = "<b>Date:</b>" + "Field Empty";
+        document.getElementById('mydivheader').style.display = "block";
+    } else {
+        document.getElementById("checkdate").innerHTML = "";
+        document.getElementById('division3').innerHTML = "";
+        document.getElementById('mydivheader').style.display = "block";
+    }
+    /*     var date1 = new Date();
+        var dob = document.getElementById("checkdate").value;
+        var date2 = new Date(dob);
+        var pattern = /^\d{1,2}\/\d{1,2}\/\d{4}$/;
+        if (pattern.test(dob)) {
+            var y1 = date1.getFullYear();
+            var y2 = date2.getFullYear();
+            var age = y1 - y2;
+            document.getElementById("checkage").value = age;
+            document.getElementById("checkage").focus();
+            return true;
+        } else {
+            document.getElementById("checkage").innerHTML = "Give in dd/mm/yyyy format";
+            document.getElementById("division3").innerHTML = "<b>DOB</b>" + "Give in dd/mm/yyyy format";
+            return false;
+        } */
+}
+
+function checkage() {
+    var a = document.getElementById("age").value;
+    var b = document.getElementById("division2").value;
+    if (a == "") {
+        document.getElementById("checkage").innerHTML = "Field Empty";
+        document.getElementById('division2').innerHTML = "<b>Age:</b>" + "Field Empty";
+        document.getElementById('mydivheader').style.display = "block";
+    } else {
+        document.getElementById("checkage").innerHTML = "";
+        document.getElementById('division2').innerHTML = "";
+        document.getElementById('mydivheader').style.display = "block";
+    }
+}
+
+function checkgoal() {
+    var a = document.getElementById("goal").value;
+    var b = document.getElementById("division6").value;
+    if (a == "") {
+        document.getElementById("checkgoal").innerHTML = "Field Empty";
+        document.getElementById('division6').innerHTML = "<b>Goals:</b>" + "Field Empty";
+        document.getElementById('mydivheader').style.display = "block";
+    } else {
+        document.getElementById("checkgoal").innerHTML = "";
+        document.getElementById('division6').innerHTML = "";
+        document.getElementById('mydivheader').style.display = "block";
+    }
+}
+
+function checkhob() {
+    var a = document.getElementById("hob").value;
+    var b = document.getElementById("division7").value;
+    if (a == "") {
+        document.getElementById("checkhob").innerHTML = "Field Empty";
+        document.getElementById('division7').innerHTML = "<b>Hobbies:</b>" + "Field Empty";
+        document.getElementById('mydivheader').style.display = "block";
+    } else {
+        document.getElementById("checkhob").innerHTML = "";
+        document.getElementById('division7').innerHTML = "";
+        document.getElementById('mydivheader').style.display = "block";
+    }
+}
+
 
 //Email and Confirm Email Validation//
 function confirmmail() {
     var a = document.getElementById("email").value;
     var b = document.getElementById("crosscheck").value;
-    var c = document.getElementById("division3").value;
+    var c = document.getElementById("division5").value;
 
     if (b == "") {
-        document.getElementById('con').innerHTML = "";
-        document.getElementById('division3').innerHTML = "";
+        document.getElementById('con').innerHTML = "Field Empty";
+        document.getElementById('division5').innerHTML = "<b>Confirm mail:</b>" + "Field Empty";
+        document.getElementById('mydivheader').style.display = "Field Empty";
 
 
     } else if (a != b) {
         document.getElementById('con').innerHTML = "**Email MisMatch**";
         document.getElementById('crosscheck').style.borderColor = "red";
-        document.getElementById('division3').innerHTML = "Email Mismatch";
+        document.getElementById('division5').innerHTML = "<b>Confirm mail:</b>" + "Email Mismatch";
+        document.getElementById('mydivheader').style.display = "block";
     } else {
         document.getElementById('con').innerHTML = "";
         document.getElementById('crosscheck').style.borderColor = "white";
-        document.getElementById('division3').innerHTML = "";
+        document.getElementById('division5').innerHTML = "";
+        document.getElementById('mydivheader').style.display = "block";
 
     }
 }
 //Email Validation//
 function validateemail() {
     var a = document.getElementById("email").value;
-    var b = document.getElementById("division2").value;
+    var b = document.getElementById("division4").value;
 
     if (a == "") {
-        document.getElementById('mails').innerHTML = "";
-        document.getElementById('division2').innerHTML = "";
+        document.getElementById('mails').innerHTML = "Field Empty";
+        document.getElementById('division4').innerHTML = "<b>Email:</b>" + "Field Empty";
+        document.getElementById('mydivheader').style.display = "Field Empty";
     } else if (a.indexOf('@') <= 0) {
         document.getElementById('mails').innerHTML = "**Invalid email id**";
         document.getElementById('email').style.borderColor = "red";
-        document.getElementById('division2').innerHTML = "Invalid email id";
+        document.getElementById('division4').innerHTML = "<b>Email:</b>" + "Invalid email id";
+        document.getElementById('mydivheader').style.display = "block";
     } else if ((a.charAt(a.length - 4) != '.') && (a.charAt(a.length - 3) != '.')) {
         document.getElementById('mails').innerHTML = "**Give Proper format**";
         document.getElementById('email').style.borderColor = "red";
-        document.getElementById('division2').innerHTML = "Give Proper Format";
+        document.getElementById('division4').innerHTML = "<b>Email:</b>" + "Give Proper Format";
+        document.getElementById('mydivheader').style.display = "block";
     } else {
         document.getElementById('mails').innerHTML = "";
         document.getElementById('email').style.borderColor = "white";
-        document.getElementById('division2').innerHTML = "";
+        document.getElementById('division4').innerHTML = "";
+        document.getElementById('mydivheader').style.display = "block";
     }
 }
+
+
 
 function button1() {
     location.reload();
+    localStorage.clear();
+}
+/* var Invalid = 0; */
+
+function Validation() {
+    /* Invalid = 0; */
+    if (document.getElementById("firstname" == "") && document.getElementById("lastname" == "") &&
+        document.getElementById("date" == "") && document.getElementById("age" == "") &&
+        document.getElementById("email" == "") && document.getElementById("goal" == "") &&
+        document.getElementById("hob" == "")) {
+        document.getElementById("mydivheader").innerHTML = "Please fill the field";
+        return false;
+    } else {
+        document.getElementById("mydivheader").style.display = "none";
+    }
 }
 
 function button2(myform) {
-    /* console.log('log 1', myform); */
-    /* var a = document.forms["myform"].getElementsByTagName("input"); */
-    if (document.forms["myform"].getElementsByTagName("input").value) {
-        /*  document.getElementById("mydiv").style.display = "none";
-         document.getElementById("mydivheader").style.display = "none";
-         document.getElementById("closing").style.display = "none";
-         var dataToSave = document.getElementById('firstname').value;
-         localStorage.setItem("data", dataToSave);
-         localStorage.getItem("data");
-         var dataToSave = document.getElementById('lastname').value;
-         localStorage.setItem("data1", dataToSave);
-         localStorage.getItem("data1");
-         var dataToSave = document.getElementById('dob').value;
-         localStorage.setItem("data2", dataToSave);
-         localStorage.getItem("data2");
-         var dataToSave = document.getElementById('age').value;
-         localStorage.setItem("data3", dataToSave);
-         localStorage.getItem("data3");
-         var dataToSave = document.getElementById('email').value;
-         localStorage.setItem("data3", dataToSave);
-         localStorage.getItem("data3");
-         var dataToSave = document.getElementById('goal').value;
-         localStorage.setItem("data4", dataToSave);
-         localStorage.getItem("data4");
-         var dataToSave = document.getElementById('hob').value;
-         localStorage.setItem("data5", dataToSave);
-         localStorage.getItem("data5"); */
-        alert("Clicked");
+    var asd;
+    asd = new FormData(document.forms.myform);
+    /* console.log(asd.values().length); */
+    for (let value of asd.values()) {
+        /* console.log(value); */
 
-    } else {
-        document.getElementById("mydiv").style.display = "block";
+        if (value == false) {
+            document.getElementById("mydiv").style.display = "block";
+            document.getElementById("check1").innerText = "Please fill your First_Name";
+            document.getElementById("check2").innerText = "Please fill your Last_Name";
+            document.getElementById("check3").innerText = "Please fill your Age";
+            document.getElementById("check4").innerText = "Please fill your Date of Birth";
+            document.getElementById("check5").innerText = "Please fill your email ";
+            document.getElementById("check6").innerText = "Please fill your Life Goals";
+            document.getElementById("check7").innerText = "Please fill your Hobbies";
+
+            localStorage.clear();
+        } else {
+            document.getElementById("mydiv").style.display = "none";
+            document.getElementById("check1").style.display = "none";
+            document.getElementById("check2").style.display = "none";
+            document.getElementById("check3").style.display = "none";
+            document.getElementById("check4").style.display = "none";
+            document.getElementById("check5").style.display = "none";
+            document.getElementById("check6").style.display = "none";
+            document.getElementById("check7").style.display = "none";
+            var dataToSave = document.getElementById('firstname').value;
+            localStorage.setItem("FirstName", dataToSave);
+            localStorage.getItem("FirstName");
+            var dataToSave = document.getElementById('lastname').value;
+            localStorage.setItem("LastName", dataToSave);
+            localStorage.getItem("LastName");
+            var dataToSave = document.getElementById('dob').value;
+            localStorage.setItem("DOB", dataToSave);
+            localStorage.getItem("DOB");
+            var dataToSave = document.getElementById('age').value;
+            localStorage.setItem("Age", dataToSave);
+            localStorage.getItem("Age");
+            var dataToSave = document.getElementById('email').value;
+            localStorage.setItem("Email", dataToSave);
+            localStorage.getItem("Email");
+            var dataToSave = document.getElementById('goal').value;
+            localStorage.setItem("Goals", dataToSave);
+            localStorage.getItem("Goals");
+            var dataToSave = document.getElementById('hob').value;
+            localStorage.setItem("Hobby", dataToSave);
+            localStorage.getItem("Hobby");
+        }
     }
 }
-// if (document.forms["myform"].value == true) {
-//     document.getElementById("mydiv").style.display = "block";
-// } else {
-//     var dataToSave = document.getElementById('firstname').value;
-//     localStorage.setItem("data", dataToSave);
-//     localStorage.getItem("data");
-//     var dataToSave = document.getElementById('lastname').value;
-//     localStorage.setItem("data1", dataToSave);
-//     localStorage.getItem("data1");
-//     var dataToSave = document.getElementById('dob').value;
-//     localStorage.setItem("data2", dataToSave);
-//     localStorage.getItem("data2");
-//     var dataToSave = document.getElementById('age').value;
-//     localStorage.setItem("data3", dataToSave);
-//     localStorage.getItem("data3");
-//     var dataToSave = document.getElementById('email').value;
-//     localStorage.setItem("data3", dataToSave);
-//     localStorage.getItem("data3");
-//     var dataToSave = document.getElementById('goal').value;
-//     localStorage.setItem("data4", dataToSave);
-//     localStorage.getItem("data4");
-//     var dataToSave = document.getElementById('hob').value;
-//     localStorage.setItem("data5", dataToSave);
-//     localStorage.getItem("data5");
-// }
+
 
 var a = document.getElementById("close");
 var b = document.getElementById("mydiv")

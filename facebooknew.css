@@ -231,8 +231,8 @@ table tr {
 }
 
 .closing {
-    margin-left: 90% !important;
-    font-size: 100%;
+    margin-left: 80% !important;
+    font-size: 2em;
     font-weight: bold;
     cursor: pointer;
     position: relative;
@@ -245,7 +245,7 @@ table tr {
 #mydiv {
     position: absolute;
     z-index: 9;
-    background-color: #f1f1f1;
+    background-color: #2196F3;
     text-align: center;
     border: 1px solid #d3d3d3;
     display: none;
@@ -255,8 +255,17 @@ table tr {
     padding: 10px;
     cursor: move;
     z-index: 10;
-    background-color: #2196F3;
-    color: #fff;
+    /* background-color: white; */
+    color: black;
+}
+
+#mydiv p {
+    text-align: left;
+}
+
+.icon1 {
+    width: 40%;
+    height: 17%;
 }
 
 @media screen and (min-width:360px) and (max-width:420px) {
@@ -292,6 +301,30 @@ table tr {
     table {
         font-size: 18px;
     }
+    .modal-content {
+        width: 50%;
+        padding: 0%;
+    }
+    .icon1 {
+        width: 30%;
+    }
+    .temperate {
+        font-size: 40px;
+        font-weight: lighter;
+        font-family: Arial, Helvetica, sans-serif;
+        color: rgb(49, 49, 49);
+        float: left;
+    }
+    .subscript {
+        font-size: 30px;
+    }
+    .subscript1 {
+        font-size: 30px;
+    }
+    .locate,
+    .description {
+        margin-left: 25%;
+    }
 }
 
 @media screen and (min-width:760px) and (max-width:1204px) {
@@ -321,5 +354,29 @@ table tr {
     }
     table {
         font-size: 18px;
+    }
+    .modal-content {
+        width: 50%;
+        padding: 0%;
+    }
+    .icon1 {
+        width: 30%;
+    }
+    .temperate {
+        font-size: 40px;
+        font-weight: lighter;
+        font-family: Arial, Helvetica, sans-serif;
+        color: rgb(49, 49, 49);
+        float: left;
+    }
+    .subscript {
+        font-size: 30px;
+    }
+    .subscript1 {
+        font-size: 30px;
+    }
+    .locate,
+    .description {
+        margin-left: 25%;
     }
 }

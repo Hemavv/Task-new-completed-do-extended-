@@ -14,7 +14,7 @@
         <div class="modal-content">
             <p id="location" class="locate"></p>
             <span id="main" class="description"></span>
-            <img id="icon" width="40%" height="17%" src="codes/200.png" align="right" hspace="30" vspace="50" alt="check" />
+            <img id="icon" class="icon1" src="codes/200.png" align="right" hspace="30" vspace="50" alt="check" />
             <table class="table1">
                 <tr>
                     <td>
@@ -60,16 +60,15 @@
             <img src="face.png" style="height:200px;justify-content:flex-end;align-items: flex-end;margin-left:20%">
         </div>
         <div class="main">
-            <form name="myform">
+            <form name="myform" id="myform" onsubmit="return validation()" action="#">
                 <table>
                     <tr>
                         <td> <label>First_Name:</label></td>
-                        <td> <input type="text" name="first" id="firstname" onblur="checkforfirstname()">
+                        <td><input type="text" name="first" id="firstname" onblur="checkforfirstname()">
                         </td>
+                        <td><span>*</span></td>
                         <td>
-
                             <span id="username"></span>
-
                         </td>
                     </tr>
                     <br/>
@@ -78,26 +77,34 @@
                         <td>
                             <input type="text" name="last" id="lastname" onblur="checkforlastname()">
                         </td>
+                        <td><span>*</span></td>
                         <td>
                             <span id="username1"></span>
                         </td>
                     </tr>
                     <tr>
-                        <td><label>DOB:</label></td>
-                        <td> <input type="date" name="date" id="dob" step="1" max="1997-12-31">
+                        <td><label>Age:</label></td>
+                        <td>
+                            <input type="number" id="age" name="age" min="21" max="100" step="1" onblur="checkage()">
                         </td>
+                        <td><span>*</span></td>
+                        <td><span id="checkage"></span></td>
 
                     </tr>
                     <tr>
-                        <td><label>Age:</label></td>
-                        <td>
-                            <input type="number" id="age" name="age" min="21" max="100" step="1">
+
+                        <td><label>DOB:</label></td>
+                        <td> <input type="date" name="date" id="dob" step="1" max="1997-12-31" onblur="checkdate()">
                         </td>
+                        <td><span>*</span></td>
+                        <td><span id="checkdate"></span></td>
+
                     </tr>
                     <tr>
                         <td><label>Email:</label></td>
                         <td> <input type="email" name="email" id="email" onblur="validateemail()">
                         </td>
+                        <td><span>*</span></td>
                         <td>
                             <span id="mails"></span>
                         </td>
@@ -106,20 +113,23 @@
                         <td> <label>Confirm:</label></td>
                         <td> <input type="email" name="Confirmemail" id="crosscheck" onblur="confirmmail()">
                         </td>
+                        <td><span>*</span></td>
                         <td>
                             <span id="con"></span>
                         </td>
                     </tr>
 
                     <tr>
-                        <td><label>Life Goals</label></td>
-                        <td> <textarea maxlength="150" id="goal" name="goals"></textarea>
+                        <td><label>Life Goals:</label></td>
+                        <td> <textarea maxlength="150" id="goal" name="goals" onblur="checkgoal()"></textarea>
                         </td>
+                        <td><span>*</span></td>
+                        <td><span id="checkgoal"></span></td>
 
                     </tr>
                     <tr>
-                        <td><label>Hobbies</label></td>
-                        <td><input type="text" id="hob" name="hobbies" list="l2"><datalist id="l2">
+                        <td><label>Hobbies:</label></td>
+                        <td><input type="text" id="hob" name="hobbies" list="l2" onblur="checkhob()"><datalist id="l2">
                                         <option>Dancing</option>
                                         <option>Singing</option>
                                         <option>Drawing</option>
@@ -130,23 +140,41 @@
                                         <option>Choreographing</option>
                                 </datalist>
                         </td>
+                        <td><span>*</span></td>
+                        <td><span id="checkhob"></span></td>
                     </tr>
+
                 </table>
             </form>
             <p class="btn">
                 <button class="btn1" onclick="button1()">RESET</button>
                 <button class="btn2" onclick="button2()">SUBMIT</button></p>
             <div id="mydiv">
-                <div id="close" class="closing">&times;</div>
-                <div id="mydivheader">
-                    Validation Summary </div>
+                <span id="mydivheader">
+                        <span id="close" class="closing">&times;</span><br/>
+                <span style="background-color: #2196F3;"> Validation Summary</span>
+                </span>
+                <p id="check1" style="color:black;background-color: white;"></p>
+                <p id="check2" style="color:black;background-color: white;"></p>
+                <p id="check3" style="color:black;background-color: white;"></p>
+                <p id="check4" style="color:black;background-color: white;"></p>
+                <p id="check5" style="color:black;background-color: white;"></p>
+                <p id="check6" style="color:black;background-color: white;"></p>
+                <p id="check7" style="color:black;background-color: white;"></p>
+
+                <!--    <p style="color:black;background-color: white;">Please fill all the field</p> -->
                 <p id="division" style="color:black;background-color: white;"></p>
                 <p id="division1" style="color:black;background-color: white;"></p>
                 <p id="division2" style="color:black;background-color: white;"></p>
                 <p id="division3" style="color:black;background-color: white;"></p>
+                <p id="division4" style="color:black;background-color: white;"></p>
+                <p id="division5" style="color:black;background-color: white;"></p>
+                <p id="division6" style="color:black;background-color: white;"></p>
+                <p id="division7" style="color:black;background-color: white;"></p>
             </div>
 
-            <script src="facebooknew.js "></script>
+
+            <script type="text/javascript " src="facebooknew.js "></script>
 
         </div>
 
