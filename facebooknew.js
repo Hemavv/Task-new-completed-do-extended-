@@ -1,14 +1,14 @@
 var modal = document.getElementById('myModal');
-var face = document.getElementById("myBtn");
-face.onclick = function() {
+var facebook_btn = document.getElementById("myBtn");
+facebook_btn.onclick = function() {
     modal.style.display = "block";
-
 }
 window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = "none";
     }
 }
+
 
 //Getting API Key//
 var APPID = "9255cdccfab1422f15ed5016615fc92b";
@@ -17,16 +17,12 @@ var loc;
 var icon;
 var humidity;
 var lat;
-var direction;
-var wind;
 var pressure;
 var main;
 
 function update(weather) {
-    icon.src = "codes/" + weather.code + ".png"
+    icon.src = "codes/" + weather.code + ".png";
     humidity.innerHTML = weather.humidity;
-    /* wind.innerHtml = weather.wind;
-    direction.innerHTML = weather.direction; */
     loc.innerHTML = weather.location;
     temp.innerHTML = weather.temp;
     lat.innerHTML = weather.lat;
@@ -34,30 +30,32 @@ function update(weather) {
     main.innerHTML = weather.main;
 }
 
+facebook_btn.onclick = function(myfunc) {
 
-window.onload = function() {
-        temp = document.getElementById("temperature");
-        loc = document.getElementById("location");
-        icon = document.getElementById("icon");
-        humidity = document.getElementById("humidity");
-        /* wind = document.getElementById("wind");
-        direction = document.getElementById("direction"); */
-        lat = document.getElementById("lat");
-        pressure = document.getElementById("pressure");
+    temp = document.getElementById("temperature");
+    loc = document.getElementById("location");
+    icon = document.getElementById("icon");
+    humidity = document.getElementById("humidity");
+    lat = document.getElementById("lat");
+    pressure = document.getElementById("pressure");
 
-        main = document.getElementById("main");
-        /* NEW */
-        if (navigator.geolocation) {
-            var showPosition = function(position) {
-                updateByGeo(position.coords.latitude, position.coords.longitude);
-            }
-            navigator.geolocation.getCurrentPosition(showPosition);
-        } else {
-            var zip = window.prompt("Could not discover your location. What is your zip code?");
-            updateByZip(zip);
-        }
-    }
+    main = document.getElementById("main");
     /* NEW */
+    if (navigator.geolocation) {
+        var showPosition = function(position) {
+            updateByGeo(position.coords.latitude, position.coords.longitude);
+        }
+        navigator.geolocation.getCurrentPosition(showPosition);
+        modal.style.display = "block";
+    } else {
+        /* var zip = window.prompt("Could not discover your location. What is your zip code?");
+        updateByZip(zip); */
+        modal.style.display = "none";
+    }
+
+}
+
+/* NEW */
 
 function updateByGeo(lat, lon) {
     var url = "http://api.openweathermap.org/data/2.5/weather?" +
@@ -83,14 +81,10 @@ function sendRequest(url) {
             var weather = {};
             weather.code = data.weather[0].id;
             weather.humidity = data.main.humidity;
-            /*  weather.wind = data.wind.speed; */
             weather.lat = data.coord.lat;
             weather.pressure = (data.main.pressure);
             weather.main = data.weather[0].main;
-            /* NEW */
-            /*  weather.direction = degreesToDirection(data.wind.deg); */
             weather.location = data.name;
-            /* NEW */
             weather.temp = K2C(data.main.temp);
             update(weather);
         }
@@ -98,24 +92,6 @@ function sendRequest(url) {
 
     xmlhttp.open("GET", url, true);
     xmlhttp.send();
-}
-
-function degreesToDirection(degrees) {
-    var range = 360 / 16;
-    var low = 360 - range / 2;
-    var high = (low + range) % 360;
-    var angles = ["N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"];
-    for (i in angles) {
-        if (degrees >= low && degrees < high) {
-            console.log(angles[i]);
-            return angles[i];
-            console.log("derp");
-        }
-        low = (low + range) % 360;
-        high = (high + range) % 360;
-    }
-    return "N";
-
 }
 
 function K2F(k) {
@@ -133,6 +109,8 @@ function checkforfirstname() {
         document.getElementById('username').innerHTML = "Field Empty";
         document.getElementById('division').innerHTML = "<b>First_Name:</b>" + "Field Empty";
         document.getElementById('mydivheader').style.display = "block";
+
+
         return false;
 
     } else if ((a.length < 8) || (a.length > 26)) {
@@ -159,12 +137,10 @@ function checkforfirstname() {
 function checkforlastname() {
     var a = document.getElementById("lastname").value;
     var b = document.getElementById("division1").value;
-
     if (a == "") {
         document.getElementById('username1').innerHTML = "Field Empty";
         document.getElementById('division1').style.display = "<b>Last_Name:</b>" + "Field Empty";
         document.getElementById('mydivheader').style.display = "block";
-
         return false;
     } else if ((a.length < 8) || (a.length > 26)) {
         document.getElementById('username1').innerHTML = "**Name should have min 8 characters and max 26 characters**";
@@ -186,34 +162,26 @@ function checkforlastname() {
 }
 
 function checkdate() {
-    var a = document.getElementById("age").value;
+    var a = document.getElementById("dob").value;
     var b = document.getElementById("division3").value;
+    var pattern = /^\d{1,2}\/\d{1,2}\/\d{4}$/;
+    var pattern1 = /^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/;
     if (a == "") {
-        document.getElementById("checkdate").innerHTML = "Field Empty";
+        document.getElementById("checkdate").innerHTML = "Field Empty ";
         document.getElementById('division3').innerHTML = "<b>Date:</b>" + "Field Empty";
+        document.getElementById('mydivheader').style.display = "block";
+    } else if (!pattern1.test(a)) {
+        document.getElementById("checkdate").innerHTML = "Give dd/mm/yyyy format";
+        document.getElementById('division3').innerHTML = " Invalid Format";
         document.getElementById('mydivheader').style.display = "block";
     } else {
         document.getElementById("checkdate").innerHTML = "";
         document.getElementById('division3').innerHTML = "";
-        document.getElementById('mydivheader').style.display = "block";
+        document.getElementById('mydivheader').style.display = "none";
     }
-    /*     var date1 = new Date();
-        var dob = document.getElementById("checkdate").value;
-        var date2 = new Date(dob);
-        var pattern = /^\d{1,2}\/\d{1,2}\/\d{4}$/;
-        if (pattern.test(dob)) {
-            var y1 = date1.getFullYear();
-            var y2 = date2.getFullYear();
-            var age = y1 - y2;
-            document.getElementById("checkage").value = age;
-            document.getElementById("checkage").focus();
-            return true;
-        } else {
-            document.getElementById("checkage").innerHTML = "Give in dd/mm/yyyy format";
-            document.getElementById("division3").innerHTML = "<b>DOB</b>" + "Give in dd/mm/yyyy format";
-            return false;
-        } */
 }
+
+
 
 function checkage() {
     var a = document.getElementById("age").value;
@@ -222,6 +190,7 @@ function checkage() {
         document.getElementById("checkage").innerHTML = "Field Empty";
         document.getElementById('division2').innerHTML = "<b>Age:</b>" + "Field Empty";
         document.getElementById('mydivheader').style.display = "block";
+
     } else {
         document.getElementById("checkage").innerHTML = "";
         document.getElementById('division2').innerHTML = "";
@@ -316,29 +285,32 @@ function button1() {
     location.reload();
     localStorage.clear();
 }
-/* var Invalid = 0; */
 
-function Validation() {
-    /* Invalid = 0; */
-    if (document.getElementById("firstname" == "") && document.getElementById("lastname" == "") &&
-        document.getElementById("date" == "") && document.getElementById("age" == "") &&
-        document.getElementById("email" == "") && document.getElementById("goal" == "") &&
-        document.getElementById("hob" == "")) {
-        document.getElementById("mydivheader").innerHTML = "Please fill the field";
-        return false;
-    } else {
-        document.getElementById("mydivheader").style.display = "none";
-    }
-}
-
-function button2(myform) {
+function button2() {
     var asd;
     asd = new FormData(document.forms.myform);
-    /* console.log(asd.values().length); */
     for (let value of asd.values()) {
-        /* console.log(value); */
 
-        if (value == false) {
+        var a = document.getElementById("firstname").value;
+        var b = document.getElementById("lastname").value;
+        var c = document.getElementById("age").value;
+        var d = document.getElementById("dob").value;
+        var e = document.getElementById("email").value;
+        var f = document.getElementById("crosscheck").value;
+        var g = document.getElementById("goal").value;
+        var h = document.getElementById("hob").value;
+
+        if (value != "") {
+            myObj = { "FirstName": document.getElementById("firstname").value, "LastName": document.getElementById("lastname").value, "age": document.getElementById("age").value, "dob": document.getElementById("dob").value, "email_id": document.getElementById("email").value, "Life_Goals": document.getElementById("goal").value, "Hobby": document.getElementById("hob").value }
+            myJSON = JSON.stringify(myObj);
+            localStorage.setItem("testJSON", myJSON);
+            text = localStorage.getItem("testJSON");
+            obj = JSON.parse(text);
+            console.log(document.getElementById("firstname").value);
+            document.getElementById("firstname").value === obj.FirstName;
+
+        } else if ((a != true) || (b != true) || (c != true) || (d != true) || (e != true) || (f != true) || (g != true) || (h != true) || (a == "") || (b == "") || (c == "") || (d == "") || (e == "") || (f == "") || (g == "") || (h == "")) {
+
             document.getElementById("mydiv").style.display = "block";
             document.getElementById("check1").innerText = "Please fill your First_Name";
             document.getElementById("check2").innerText = "Please fill your Last_Name";
@@ -347,8 +319,6 @@ function button2(myform) {
             document.getElementById("check5").innerText = "Please fill your email ";
             document.getElementById("check6").innerText = "Please fill your Life Goals";
             document.getElementById("check7").innerText = "Please fill your Hobbies";
-
-            localStorage.clear();
         } else {
             document.getElementById("mydiv").style.display = "none";
             document.getElementById("check1").style.display = "none";
@@ -358,32 +328,9 @@ function button2(myform) {
             document.getElementById("check5").style.display = "none";
             document.getElementById("check6").style.display = "none";
             document.getElementById("check7").style.display = "none";
-            var dataToSave = document.getElementById('firstname').value;
-            localStorage.setItem("FirstName", dataToSave);
-            localStorage.getItem("FirstName");
-            var dataToSave = document.getElementById('lastname').value;
-            localStorage.setItem("LastName", dataToSave);
-            localStorage.getItem("LastName");
-            var dataToSave = document.getElementById('dob').value;
-            localStorage.setItem("DOB", dataToSave);
-            localStorage.getItem("DOB");
-            var dataToSave = document.getElementById('age').value;
-            localStorage.setItem("Age", dataToSave);
-            localStorage.getItem("Age");
-            var dataToSave = document.getElementById('email').value;
-            localStorage.setItem("Email", dataToSave);
-            localStorage.getItem("Email");
-            var dataToSave = document.getElementById('goal').value;
-            localStorage.setItem("Goals", dataToSave);
-            localStorage.getItem("Goals");
-            var dataToSave = document.getElementById('hob').value;
-            localStorage.setItem("Hobby", dataToSave);
-            localStorage.getItem("Hobby");
         }
     }
 }
-
-
 var a = document.getElementById("close");
 var b = document.getElementById("mydiv")
 a.onclick = function() {

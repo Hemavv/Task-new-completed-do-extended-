@@ -1,13 +1,13 @@
 <html>
 
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="facebooknew.css">
+    <meta name="viewport" content="width=device-width,height=device-height">
+    <link rel="stylesheet" href="facebooknew.css ">
 </head>
 
 <body>
     <div class="header">
-        <button class="face" id="myBtn"><h1>facebook</h1></button>
+        <button class="facebook_btn" id="myBtn" onload="myfunc()"><h1>facebook</h1></button>
     </div>
     <!-- Displaying the weather data in the form of modal -->
     <div id="myModal" class="modal">
@@ -17,17 +17,12 @@
             <img id="icon" class="icon1" src="codes/200.png" align="right" hspace="30" vspace="50" alt="check" />
             <table class="table1">
                 <tr>
-                    <td>
+                    <td style="background-color: white;border: none;">
                         <span id="temperature" class="temperate"></span>
-                        <span class="subscript"><sup class="subscript1">&#8451;</sup></span>
+                        <span class="subscript"><sup class="subscript">&#8451;</sup></span>
                     </td>
                 </tr>
-                <!--   <tr>
-                    <td>
-                        <img src="wind.png" align="left" height=20>
-                        <span id="wind"></span>mph<span id="direction"></span>
-                    </td>
-                </tr> -->
+
                 <tr>
                     <td><img src="humid.jpg" align="left" height=20><span id="humidity" float="left"></span> &percnt;
 
@@ -43,10 +38,11 @@
                 <tr>
                     <td> <img src="latlng.jpg" align="left" height=20>
 
-                        <span id="pressure">0</span>hpa
+                        <span id="pressure"></span>hpa
 
                     </td>
                 </tr>
+                <h1 id="nointernet" class="demo">Could not find location</h1>
             </table>
             <span class="close" id="clo"></span>
         </div>
@@ -60,7 +56,7 @@
             <img src="face.png" style="height:200px;justify-content:flex-end;align-items: flex-end;margin-left:20%">
         </div>
         <div class="main">
-            <form name="myform" id="myform" onsubmit="return validation()" action="#">
+            <form id="myform">
                 <table>
                     <tr>
                         <td> <label>First_Name:</label></td>
@@ -129,7 +125,7 @@
                     </tr>
                     <tr>
                         <td><label>Hobbies:</label></td>
-                        <td><input type="text" id="hob" name="hobbies" list="l2" onblur="checkhob()"><datalist id="l2">
+                        <td><input type="text" id="hob" name="hobbies" list="list" onblur="checkhob()"><datalist id="list">
                                         <option>Dancing</option>
                                         <option>Singing</option>
                                         <option>Drawing</option>
@@ -161,8 +157,6 @@
                 <p id="check5" style="color:black;background-color: white;"></p>
                 <p id="check6" style="color:black;background-color: white;"></p>
                 <p id="check7" style="color:black;background-color: white;"></p>
-
-                <!--    <p style="color:black;background-color: white;">Please fill all the field</p> -->
                 <p id="division" style="color:black;background-color: white;"></p>
                 <p id="division1" style="color:black;background-color: white;"></p>
                 <p id="division2" style="color:black;background-color: white;"></p>
@@ -174,7 +168,7 @@
             </div>
 
 
-            <script type="text/javascript " src="facebooknew.js "></script>
+            <script type="text/javascript" src="facebooknew.js"></script>
 
         </div>
 

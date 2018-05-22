@@ -2,17 +2,20 @@
     margin: 0%;
     padding: 0%;
     font-family: Helvetica, Arial, sans-serif;
+    background-color: rgb(215, 215, 236);
 }
 
 .locate {
     font-size: 30px;
     font-family: Arial, Helvetica, sans-serif;
+    background-color: white !important;
 }
 
 .description {
     font-size: 15px;
     color: rgb(110, 108, 108);
     font-family: Arial, Helvetica, sans-serif;
+    background-color: white !important;
 }
 
 .temperate {
@@ -20,6 +23,7 @@
     font-weight: lighter;
     font-family: Arial, Helvetica, sans-serif;
     color: rgb(49, 49, 49);
+    background-color: white !important;
 }
 
 .subscript {
@@ -27,11 +31,13 @@
     font-weight: lighter;
     font-family: Arial, Helvetica, sans-serif;
     color: rgb(49, 49, 49);
+    background-color: white !important;
 }
 
 .subscript1 {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: rgb(49, 49, 49), !important;
+    background-color: white !important;
 }
 
 td {
@@ -43,13 +49,23 @@ td {
 .table1 td {
     text-align: left;
     font-size: 17px;
-    color: rgb(110, 108, 108);
+    /*  color: rgb(110, 108, 108); */
     font-family: Arial, Helvetica, sans-serif;
     font-weight: lighter;
+    background-color: white !important;
+    border: none;
+    border-color: white;
+}
+
+.table1 {
+    background-color: white !important;
+    border: none;
 }
 
 .table1 span {
     color: rgb(110, 108, 108);
+    background-color: white !important;
+    border: none;
 }
 
 table span {
@@ -59,6 +75,7 @@ table span {
 h1 {
     font-size: 30px;
     font-weight: 600;
+    background-color: #29487d;
 }
 
 .row {
@@ -66,8 +83,8 @@ h1 {
     flex-wrap: wrap;
 }
 
-.face {
-    background-color: #29487d;
+.facebook_btn {
+    background-color: #29487d !important;
     color: white;
     cursor: pointer;
     margin-left: 10%;
@@ -215,7 +232,7 @@ table tr {
 /* Modal Content */
 
 .modal-content {
-    background-color: #fefefe;
+    background-color: #fefefe !important;
     margin: auto;
     padding: 5px;
     border: 1px solid #888;
@@ -251,6 +268,10 @@ table tr {
     display: none;
 }
 
+.demo {
+    display: none;
+}
+
 #mydivheader {
     padding: 10px;
     cursor: move;
@@ -265,12 +286,16 @@ table tr {
 
 .icon1 {
     width: 40%;
-    height: 17%;
+    /* height: 17%; */
 }
 
 @media screen and (min-width:360px) and (max-width:420px) {
     .row {
         flex-direction: row;
+    }
+    .table1 {
+        background-color: white !important;
+        border: none;
     }
     .side {
         display: none;
@@ -283,16 +308,14 @@ table tr {
         font-size: 60px;
     }
     .main {
-        flex: 0 0 506px;
-        height: 52em;
-        /*  align-items: stretch; */
+        flex: 0 0 507px;
+        max-height: 100%;
     }
-    h1,
-    table {
+    h1 {
         margin-left: 25%;
     }
     .btn {
-        margin-left: 120px;
+        margin-left: 50px;
     }
     .btn1,
     .btn2 {
@@ -303,7 +326,7 @@ table tr {
     }
     .modal-content {
         width: 50%;
-        padding: 0%;
+        /*  padding: 0%; */
     }
     .icon1 {
         width: 30%;
@@ -317,6 +340,7 @@ table tr {
     }
     .subscript {
         font-size: 30px;
+        border: none;
     }
     .subscript1 {
         font-size: 30px;
@@ -325,39 +349,49 @@ table tr {
     .description {
         margin-left: 25%;
     }
+    input,
+    textarea {
+        width: 200px;
+        height: 80px;
+    }
 }
 
-@media screen and (min-width:760px) and (max-width:1204px) {
+@media screen and (min-width:760px) and (max-width:1024px) {
     .row {
         flex-direction: row;
+    }
+    .table1 tr {
+        background-color: white !important;
+        border: none;
     }
     .side {
         display: none;
     }
-    /* .header {
-        width: 550px;
-    } */
     .main {
-        height: 57rem;
+        height: 82rem;
     }
-    h1,
-    table {
-        margin-left: 35%;
+    .header h1 {
+        margin-left: 250px;
+    }
+    h1 {
+        margin-left: 20%;
+        font-size: 50px;
     }
     .btn {
-        margin-left: 40%;
+        margin-left: 30%;
     }
     .btn1,
     .btn2 {
-        width: 28%;
+        width: 30%;
         font-size: 20px;
     }
     table {
-        font-size: 18px;
+        font-size: 25px;
+        margin-left: 20%;
     }
     .modal-content {
         width: 50%;
-        padding: 0%;
+        /*  padding: 0%; */
     }
     .icon1 {
         width: 30%;
@@ -378,5 +412,10 @@ table tr {
     .locate,
     .description {
         margin-left: 25%;
+    }
+    input,
+    textarea {
+        width: 200px;
+        height: 60px;
     }
 }
